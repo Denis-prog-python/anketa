@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета пользователя</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        form { margin-bottom: 20px; }
+        input, textarea { width: 100%; padding: 8px; margin: 5px 0 15px; }
+        button { background: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        .result { background: #f4f4f4; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Анкета пользователя</h1>
+
+    <form method="POST">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="city">Город:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="hobby">Хобби:</label>
+        <textarea id="hobby" name="hobby" required></textarea>
+
+        <label for="age">Возраст:</label>
+        <input type="number" id="age" name="age" min="1" max="120" required>
+
+        <button type="submit">Отправить</button>
+    </form>
+
+    {% if submitted %}
+    <div class="result">
+        <h2>Ваши данные:</h2>
+        <p><strong>Имя:</strong> {{ name }}</p>
+        <p><strong>Город:</strong> {{ city }}</p>
+        <p><strong>Хобби:</strong> {{ hobby }}</p>
+        <p><strong>Возраст:</strong> {{ age }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
